@@ -1,0 +1,55 @@
+Va salut,rezolvarea acestui assignment am efectuat-o astfel:
+
+a)
+
+Obtinerea mediului Ubuntu-Linux Ubuntu 20.04.2.0 LTS,prin crearea unui bootable drive cu ajutorul lui SD Card Formatter si Rufus 3.14 din Windows 10 mi-am asigurat folosirea mai autentica a lui Ubuntu,fata de o masina virtuala,pentru parcurgerea corecta a cursului.
+
+Prin tasta F11 fac dual boot si pot sa accesez Ubuntu de pe USB.
+
+
+Dupa ce am facut ajustarea la zi prin comenziile  sudo apt update si sudo apt upgrade,am intalat Apache Web Server din sistemul de distribuţie Linux însoțitor,folosind sudo apt install apache2 si am configurat firewall conform lectiei.
+
+b)
+
+Prin sudo mkdir /var/www/html/webtest1 si sudo mkdir /var/www/html/webtest1/webtest2 am realizat crearea directoarelor cerute in directorul DocumentRoot aka "/var/www/html/".M-am plasat din consola pe /webtest1 si am creat prin touch .htaccess fisierul de configurare apoi am procedat asemanator pentru directorul imbricat.
+
+Prin comanda sudo htpasswd -c /usr/local/etc/passwords user1 si sudo htpasswd  /usr/local/etc/passwords user2 (fara flagul -c pentru a putea face append) am creat utilizatori pentru server cu parolele:pass1 pentru user1 si pass2 pentru user2.
+
+In fisierul .htaccess asociat lui /webtest1 am introdus liniile urmatoare prin sudo nano .htaccess:
+
+ Options Indexes FollowSymLinks
+
+AuthType Basic
+AuthName "Please enter username and password"
+AuthUserFile /usr/local/etc/passwords
+Require user user1   
+
+Am salvat prin ctrl+x si y 
+
+Iar in fisierul .htaccess asociat lui /webtest2 am introdus,asemanator,liniile:
+
+
+Options +Includes +Indexes
+
+AuthType Basic
+AuthName "Please enter username and password"
+AuthUserFile /usr/local/etc/passwords
+Require user user2
+
++Indexes(pentru accessare,altfel aveam eroarea 403 la directorul respectiv accesat din browser,descoperire facuta la testare)
+
+In fiserul de configurare principal apache2.conf accesat prin sudo nano /etc/apache2/apache2.conf am introdus:AllowOverride All in sectiunea Directory pentru /var/www iar in fisierul de configurare suplimentar am aprobat modul rewrite prin comanda sudo nano /etc/apache2/sites-enabled/000-default.conf si editarea cu liniile:
+
+<Directory /var/www/html>
+AllowOverride All
+</Directory>
+  
+In final am introdus comanda sudo a2enmod rewrite pentru activarea modulului si am restartat serverul Apache.
+Am testat cele doua adrese:
+localhost/webtest1 se acceseaza prin user1 si parola pass1 iar adresa localhost/webtest1/webtest2 se acceseaza prin user2 si parola pass2.
+
+Va multumesc pentru verificarea assignmentului si va urez numai bine!
+
+
+
+P.S.:Am facut copy la fisierele cerute si le-am pus intr-o structura similara a directoarelor imbricate pe care am creat-o si pe locatia /var/www/html a serverului propiu-zis.

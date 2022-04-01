@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body{
+background-image: url(../images/sketch.jpg);
+background-repeat: repeat-y;
+}
+ul#nav_li li{
+display:inline;
+padding: 4px;
+
+}
+main img{
+ float: right;
+
+}
+#wrapper{
+    width:960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+#header {
+    height:100px;
+    
+}
+
+#main {
+    width:700px;
+    background-color: royalblue;
+    float:left;
+    padding:20px;
+
+}
+
+#sidebar {
+    width:200px;
+    background-color: sandybrown;
+    float:right;
+    padding:10px;    
+}
+
+#footer {
+    
+    clear:both;
+    
+}
+
+a:link{
+    text-decoration: none;
+    }
+a:visited{
+      color:indigo;
+    }
+a:hover{
+        color: peru;
+    }

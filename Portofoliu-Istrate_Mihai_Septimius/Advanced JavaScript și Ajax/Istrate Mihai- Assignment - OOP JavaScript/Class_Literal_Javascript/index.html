@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="results"></p>
+    <script>
+
+    class Cub{
+     
+         constructor(latura){
+   
+              this._latura=latura;
+
+         }
+          
+        
+         volume(){
+            return this._latura*this._latura*this._latura;
+
+         }
+       
+        
+    lungime_totala_muchii(){
+            return 12*this._latura;    
+         }
+            
+    }
+ 
+ 
+
+
+    var zar,dulap,rezultat_Static_Pagina;   
+  
+  zar =new Cub(2);
+  dulap =new Cub(10);
+  rezultat_Static_Pagina=document.getElementById("results");
+
+  alert(zar.volume());
+  alert(zar.lungime_totala_muchii());
+  
+  alert(dulap.volume());
+  alert(dulap.lungime_totala_muchii());
+     
+  
+  rezultat_Static_Pagina.innerHTML+="Volumul primului obiect este "+"<b>"+zar.volume()+"</b>"+",iar lungimea totala a laturiilor sale este "+ "<b>"+zar.lungime_totala_muchii()+"</b>.";
+  rezultat_Static_Pagina.innerHTML+="<br>";  
+  rezultat_Static_Pagina.innerHTML+="Volumul celui de-al doilea obiect este "+"<b>"+dulap.volume()+"</b>"+",iar lungimea totala a laturiilor sale este "+ "<b>"+dulap.lungime_totala_muchii()+"</b>.";
+    
+    
+    </script>
+</body>
+</html>

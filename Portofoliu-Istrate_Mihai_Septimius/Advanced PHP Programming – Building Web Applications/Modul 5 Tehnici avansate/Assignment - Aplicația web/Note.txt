@@ -1,0 +1,1 @@
+Parolele sunt salvate in forma necriptata in baza de date pentru usurinta verificarii aplicatiei.

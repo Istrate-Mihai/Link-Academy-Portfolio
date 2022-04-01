@@ -1,0 +1,59 @@
+Buna ziua Domnule Profesor,pentru acest assignment am procedat astfel:
+
+-Am deschis un terminal,de pe Desktop,aceasta instanta a terminalului am pastrat-o deschisa pana la efectuarea tuturor sarcinilor.
+
+-Cerinta assignmentului presupunand realizarea instalarii platformei WordPress pentru domeniul intitulat "it-academy.biz.",am procedat a crea acest domeniu conform crearii host-urilor virtuale asemenea cum am realizat acest lucru si pentru assignmentul "Crearea host-urilor virtuale",de aceea nu am sa descriu aceasta etapa aici.    
+
+-Deoarece cerintele preliminarii pentru instalarea platformei CMS WordPress sunt:existenta unui server web cu suport PHP,un server de baze de date SQL si PHP-ul instalat am indeplinit mai intai configurarea acestora.
+
+-Instalarea suportului PHP pentru Apache Web Server,prima instructiune a fost executarea:
+sudo apt install php libapache2-mod-php php-opcache php-gd php-mysql php-json php-mbstring php-curl php-cli php-xml(instalarea arhivei binare).
+Mai departe am pornit modulul php prin comanda:sudo a2enmod php7.4(fiind versiunea utilizata,comanda a fost corecta si,ca nota informativa ulterior prin testare am vazut chiar si mai in detaliu ca este versiunea 7.4.3).Am restartat serverul Apache pentru ca modulul sa functioneze folosind:sudo systemctl restart apache2.
+In continuare a trebuit sa configurez detectia paginii principale afisata de server in browser in cazul in care se introduce adresa pana la directorul radacina fara sa se specifice fiserul de start index,astfel am oferit prioritate de ordin intai fisierului index.php,aceasta modificare de ordine am realizat-o executand:
+sudo nano /etc/apache2/mods-enabled/dir.conf si editand corespunzator,dupa am salvat.
+Am restartat serverul. 
+
+-Testarea functionarii script-urilor PHP,si astfel a instalarii corecte a acestui suport PHP,am realizat-o creand un fisier index.php prin executia comenzii:
+sudo nano /var/www/it-academy.biz/public_html/index.php,in editor am scris continutul acestui fiser ca fiind: 
+<?php
+phpinfo();
+?>  
+Am salvat editarea si am verificat in Firefox adresa:it-academy.biz,afisarea versiunii si a tuturor informatiilor printre care si caile fiserelor de configurare .ini fiind realizata cu succes.
+Am repornit serverul.
+
+
+-Mai departe a trebuit sa indeplinesc preconditia pentru WordPress de a avea o baza de date SQL,varianta populara MySQL fiind optiunea aleasa pentru instalare,executand:
+sudo apt install mysql-server
+Dupa procesul de instalare,m-am conectat la serverul MySQL folosind:
+sudo mysql -u root -p
+In aceasta conexiune a trebuit sa creez o baza de date astfel:
+CREATE DATABASE itacademyWP;
+Dupa un utilizator:
+CREATE USER 'administrator'@'localhost' IDENTIFIED BY '1234it-academy';
+Oferirea drepturilor de access la bazele de date catre accest utilizator astfel:
+GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'localhost';
+Prin comanda exit am iesit din serverul MySQL folosit in terminal.
+
+
+-Pentru continuarea efectuarii sarcinilor necesare m-am plasat in directorul radacina al host-ului virtual it-academy.biz utilizand:
+cd /var/www/it-academy.biz/public_html
+In acest moment am initiat instalarea propriu-zisa a lui WordPress in terminal
+Executia lui:
+wget -c http://wordpress.org/latest.zip a descarcat arhiva versiunii curente a platformei de pe site-ul lor oficial principal.
+Dezarhivarea s-a realizat folosind:
+unzip latest.zip
+ Pasul urmator a fost atribuirea drepturilor de acces din exterior pentru grup si a utilizatorului www-data asupra directorului wordpress,tastand:
+ sudo chown -R www-data:www-data wordpress,pentru care a trebuit sa folosesc parola de utilizator de pe sistemul Ubuntu.
+ Deoarece nu am mai avut nevoie de arhiva wordpress am sters-o prin:sudo rm latest.zip
+ Prin cd wordpress am intrat in directorul dezarhivat unde am efectuat copierea fiserelor php de configurare,primul fisier numit in comanda fiind sursa copiata iar comanda a fost:
+ sudo mv wp-config-sample.php wp-config.php
+ Editarea lui wp-config.php prin sudo nano wp-config.php a fost actiunea urmatoare:
+ In aceasta editare am introdus ca parametrii pentru functiile corespunzatoare referitoare la numele bazei de date,numele utilizatorului bazei de date si parola,pe acelea pe care le-am creat la configurarea lui MySQL adica:itacademyWP,administrator respectiv parola 1234it-academy.
+ Prin salvarea acestei ultime editari in terminal,l-am inchis.
+ 
+ -A trebuit sa completez instalarea WordPress in browser,dupa introducerea adresei it-academy.biz/wordpress am fost redirectionat la pagina de selectie a limbii unde am ales English,dupa prin continue am ajuns la pagina de setari principale a contului si site-ului WordPress,aici am denumit It Academy site-ul,cu user-ul administrator avand parola bifata ca fiind weak 1234 si am completat email cu administrator@it-academy.biz
+ 
+ -La finalul acestui intreg proces de instalare am luat screenshot-ul cu utilizatorul autentificat folosind combinatia de taste Alt+PrtScn.
+ 
+ 
+ Va multumes pentru verificare.

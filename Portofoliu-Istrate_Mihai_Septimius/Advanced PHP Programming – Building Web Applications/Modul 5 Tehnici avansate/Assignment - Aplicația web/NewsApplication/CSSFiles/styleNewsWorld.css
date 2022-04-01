@@ -1,0 +1,252 @@
+@charset "utf-8";
+* {
+  box-sizing: border-box;
+ 
+ }
+
+body {
+padding: 0;
+margin: 0;
+background-image: url("../images/Marketplace-Lending-News.jpg"),url("../images/earth.jpg");
+background-repeat: no-repeat,no-repeat;
+background-attachment: fixed,fixed;
+background-size:256px 150px, cover;
+
+}
+.container{
+background-color: rgba(134, 131, 128, 0.78);
+margin: 10px auto;
+width:50%;
+clear: left;
+}
+
+#containerfooter{
+background-color: rgba(0,0,0,0.8);
+text-align: center;
+color: white;
+font-size: 20px;
+margin-top: 80px;
+
+}
+h1 {
+text-align: center;
+color: midnightblue;
+font-size: 36px;
+font-weight: bolder;
+margin: 0;
+}
+h2 {
+    text-align: center;
+    color: midnightblue;
+    font-size: 30px;
+
+}
+h3 {
+  
+  color: midnightblue;
+  font-size: 24px;
+  margin-left: 5px;
+}
+p {
+    font-weight: bolder;
+    padding: 5px;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+
+
+#Menu {
+width:15%;
+float: right;
+margin-right:0 0 0 20px;
+}
+
+
+#Menu label {
+  color:#e098ff;
+  font-weight:bold;
+}
+
+#Menu input[type=file] {
+  color:#e098ff;
+  font-weight:bold;
+}
+.GreetUser {
+  float:left;
+  margin:100px 0 0 10px;
+  
+  display:inline;
+}
+.Inform {
+  color:red;
+  margin-left:250px;
+}
+ 
+#Toggle { 
+  display:none;  
+  }; 
+#HideMenu {  
+  display:none;   
+   }; 
+ #ShowMenu { 
+  display:inline;
+  } 
+
+
+textarea {
+  
+  width: 60%;
+  height: 100px;
+}
+#SpecialComments,#NewsContent {
+  resize: none;
+  width:80%; 
+  height: 200px;
+}
+
+form {
+  margin-left: 50px;
+  
+}
+input {
+font-size: 18px;
+}
+.latest {
+font-weight: bolder;
+font-size: 20px;
+padding: 30px;
+
+
+
+}
+
+.chosen {
+  font-weight: bolder;
+  font-size: 20px;
+  padding: 30px;
+  
+}
+
+img {
+  margin-left:70px;  
+  width:80%;
+}
+#NewsList {
+
+margin:200px -150px -300px 0;
+color: burlywood;
+font-size: 20px;
+font-weight: bolder;
+width: 150px;
+float: left;
+position: fixed;
+}
+#NewsList a {
+text-decoration: none;
+color:#f3bfb3;
+}
+#NewsList a:hover {
+  text-decoration:underline;
+  color: goldenrod;
+
+}
+#usersEmail {
+margin-left:30px;
+margin-bottom: 20px;
+border:2px solid blue;
+float: left;
+width:10%;
+
+
+}
+#usersEmail th,td {
+  padding:5px;
+  border-spacing: 5px; 
+  border:2px solid blue;
+  color: red;
+  
+  
+}
+#UsersEmailForm { 
+  float: left;
+  margin-left: 210px;
+  margin-bottom: 20px;
+  margin-top: -50px;
+  color: red;
+  font-weight: bold;
+  
+  
+}
+
+/*Responsive display For smaller devices*/
+
+@media only screen and (max-width:768px) {
+  
+  body {
+      background-size:100px 100px,cover;
+  }
+  
+.container {
+  width:100%;
+  margin-top: 100px;
+}
+
+.GreetUser {
+  float:left;
+  margin-top:-50px;
+  margin-left: 100px;
+  
+  
+  
+}
+p{
+  font-size: 1.4em;
+}
+img {
+width: 100%;
+margin-left: -2px;
+
+}
+
+#Menu {
+  width:100%;
+
+  }
+
+  #NewsList {
+
+    margin:-100px 0 0 55px;
+    width: 100%;
+    position: absolute;
+    
+    }
+
+    #NewsList li  {
+      display: inline;
+      
+      padding: 10px;
+      
+    }
+
+#NewsList li a {
+  color: red;
+}
+ 
+
+.Inform {
+  color:red;
+  float: right;
+  
+  
+}
+
+
+
+
+
+
+}
+
+
+

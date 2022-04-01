@@ -1,0 +1,3 @@
+Date logare:
+Nume de utilizator: istratemihai
+Parola de utilizator(decriptata): a_Securepassword12

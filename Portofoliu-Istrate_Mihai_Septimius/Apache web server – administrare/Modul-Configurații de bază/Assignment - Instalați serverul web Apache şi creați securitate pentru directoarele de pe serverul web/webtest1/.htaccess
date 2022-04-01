@@ -1,0 +1,6 @@
+Options Indexes FollowSymLinks
+
+AuthType Basic
+AuthName "Please enter username and password"
+AuthUserFile /usr/local/etc/passwords
+Require user user1

@@ -1,0 +1,53 @@
+Va salut Domnule Profesor,descrierea solutiei in acest fisier urmeaza astfel:
+
+1)
+
+Crearea directorului DocumentRoot pentru host-ul virtual prin:
+sudo mkdir -p /var/www/itlink.edu/public_html
+
+2)
+
+Permiterea accesului utilizatorilor non-root la directoare,cat si accesul general asupra directorului pentru host-urile virtuale prin comenzile:  
+sudo chown -R $USER:$USER /var/www/itlink.edu/public_html
+sudo chmod -R 755 /var/www
+
+3)
+
+Am creat fiserul index.php in directorul DocumentRoot al host-ului virtual si am adaugat continutul:
+<!DOCTYPE html>
+<html>
+<head>
+<title>IT Link Site</title>
+<meta charset="utf-8">
+</head>
+
+<body>
+<h1>Website-www.itlink.edu</h1>
+</body>
+</html>
+Am salvat editarea.
+  
+4)
+Crearea fisierului de configurare pentru host-ul virtual prin comanda:
+sudo nano /etc/apache2/sites-available/itlink.edu.conf urmata de adaugarea continutului 
+<VirtualHost *:80>
+ServerAdmin administrator@itlink.edu
+ServerName itlink.edu
+ServerAlias www.itlink.edu
+DocumentRoot /var/www/itlink.edu/public_html
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+Am salvat editarea.
+
+5)Permiterea functionarii configuratiei executand 
+sudo a2ensite itlink.edu
+Dezactivarea configuratiei default am realizat-o la parcurgerea initiala a tutorialului,astfel nu a mai fost necesara comanda:sudo a2dissite 000-default.conf
+
+6)Ultimele actiuni au fost restartarea serverului Apache2:
+sudo systemctl restart apache2
+Si adaugarea adresei domeniului itlink.edu la configurarea executiei site-urilor pe propriul sistem.
+Linia 127.0.0.1 itlink.edu adaugata.
+Am testat incarcarea site-ului si am luat un screenshot prin combinatia de taste:Alt+PrtScn
+
+Va multumesc! 

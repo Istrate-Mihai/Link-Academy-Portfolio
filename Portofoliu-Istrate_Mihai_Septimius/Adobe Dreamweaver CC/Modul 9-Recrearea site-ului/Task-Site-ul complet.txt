@@ -1,0 +1,4 @@
+Exerciţiu
+Creaţi un site care include tot ceea ce aţi învăţat până în prezent. Setaţi singuri layoutul, adăugaţi tot conţinutul, textele, imaginile, imaginile de fundal şi tot ce mai 
+conţine un site. Textul şi imaginile pot fi şi Lorem Ipsum, însă este important ca site-ul să arate ca un conţinut întreg. 
+Trimiteţi întregul catalog ambalat într-o arhivă. 

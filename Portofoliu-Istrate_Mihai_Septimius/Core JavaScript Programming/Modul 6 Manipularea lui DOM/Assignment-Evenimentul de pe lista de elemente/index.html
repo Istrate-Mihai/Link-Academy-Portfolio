@@ -1,0 +1,341 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+  #ImageContainer{
+   position: absolute;
+   left:800px;
+   display: none;
+   float:right;
+  }
+  
+#VaseDescription{
+    width: 400px;
+}
+
+input[type="text"]{
+    margin-left: 10px;
+}
+label {
+    margin-left: 200px;
+}
+.PrimeLabel {
+    margin-left:0;
+}
+#Name_p,#LastName_p{
+    display: inline;
+}
+#SubmitButton{
+    font-size: 15px;
+    color: blue;
+}
+</style>
+
+</head>
+<body>
+    
+    <h1>Order beautiful vases here:</h1>
+    <img id="ImageContainer" src="" alt="No Photo Available">
+    <div id="VaseDescription"></div> 
+    
+  
+    
+     <br>
+  
+   <form  name="VaseOrder" method="POST" onsubmit="return true"  action="javascript: alert('Form is submitted')">
+  
+   <label class="PrimeLabel" for="Name">Enter your Name: </label>
+   <input type="text" id="Name" name="Name" onkeyup="Validation(this)"><p id="Name_p"></p>
+   <br><br>
+   <label class="PrimeLabel" for="LastName">Enter your LastName: </label>
+   <input type="text" id="LastName" name="LastName" onkeyup="Validation(this)"><p id="LastName_p"></p>
+   <br><br>
+
+   <label class="PrimeLabel">Select an option from the drop-down list and fill in ,correctly, the further generated fields to send your order! <br>Note:The form can't be submitted for the "No Selection" option,also you must make changes to all fields <br> (i.e. use each field at least once for the form to respond)!!!</label>
+   <br><br>
+     
+   <select onchange="Selected(this)"   name="VaseSelection">
+    <option  value="No Selection">No Selection</option>
+    <option  value="Medusa Head Vase">Medusa Head Vase</option>
+    <option  value="Glass Ocean Blue Vase">Glass Ocean Blue Vase</option>
+    <option  value="Sultan Delight Vase">Sultan Delight Vase</option>
+    <option  value="Nature's Hold Vase">Nature's Hold Vase</option>
+    <option  value="H.R. Giger's Alien Egg Vase">H.R. Giger's Alien Egg Vase</option>
+    <option  value="Shogun's Treasure Vase">Shogun's Treasure Vase</option>
+</select>
+     
+</form>
+ 
+
+
+<script>
+
+ var Pass={
+  Name:false,
+  LastName:false,
+  Address:false,
+  Email:false,
+  Phone:false,
+  Select:false
+
+
+ } //Object that will determine if the form can be submitted or not 
+ 
+ var ImageContainer=document.getElementById("ImageContainer"); 
+ 
+ var DescriptionContainer=document.getElementById("VaseDescription"); 
+ 
+ var Form=document.forms["VaseOrder"]; 
+ 
+ var formPresence=0;
+ var SubmitButtonPresence=0;
+
+ var descriptions={
+    Medusa:"Crafted from the most exceptional quality porcelain, this gold-tone vase boasts a central Medusa encircled by the Greca.",
+    Asian: "Whether they're high-shouldered or pear-shaped, rounded at their waists or curvaceous like a beaker, vases from China and Japan are expressive vessels. Made out of jade, bronze, porcelain, and numerous other materials, their forms are blank slates for decorations ranging from abstract patterns of dripping glazes to intricate narratives depicting scenes from everyday life, menacing dragons, and spiritual figures such as the Buddha.",
+    Sultan:"Tall 15 inches Solid Copper Ornate Persian Arabic Relief Urn Vase, Embossed Goats.Exquisite ornate Arabic-Persian relief/embossed solid copper urn or flower vase, circa mid 20th century.",
+    Nature:"Shaped from the love of folding and cutting paper!This is a vase made from reclaimed books.Make your flowers be the talking point of your room!Such a vase can hold a small amount of water,to not spill on the sides, and a few stems of flowers.A book vase is cut from a book (that was destined for landfill, can't have that!) so we reclaimed it and gave it a new lease of life.",
+    Glass:"Flowers are a cheap and easy way to instantly infuse any space with energy and life, so having a few amazing glass vases on hand is an absolute must. Whether it be the foyer, bathroom, waiting room, or bedroom, any room can benefit from a great floral arrangement or a few lush plant clippings in the perfect vase. Not into flowers or plants? No problem! The majority of the picks on our list look great empty too. Whether the perfect vase for you turns out to be a minimalist glass vessel, a loud and proud geometric beauty, or a quirky pink flamingo, our glass vase collection includes a little something for everyone and every budget.",
+    Alien:"If you're a fan of the classic sci-fi horror franchise Alien and wish to make your office or home a little bit like a xenomorph hive,check out this unique piece inspired by the work of the master himself!"
+     
+  }
+  
+ 
+   function BigBrother(){
+
+    
+    if(Pass.Name==true && Pass.LastName==true && Pass.Email==true && Pass.Phone==true && Pass.Address==true && Pass.Select==true  && SubmitButtonPresence==0 ){
+        var submitButton=document.createElement("input");
+        submitButton.setAttribute("type","submit");
+        submitButton.setAttribute("value","Send Form");
+        submitButton.setAttribute("name","submit");  
+        submitButton.setAttribute("id","SubmitButton");
+        Form.appendChild(submitButton);
+        SubmitButtonPresence=1;
+    }else if( SubmitButtonPresence==1 && (Pass.Name==false || Pass.LastName==false || Pass.Email==false || Pass.Phone==false || Pass.Address==false || Pass.Select==false) ){
+        var lastElement = document.getElementById("SubmitButton");
+        Form.removeChild(lastElement);
+        SubmitButtonPresence=0;
+    }
+
+
+
+   } 
+     
+
+  
+   
+
+
+
+  function Validation(target){
+    
+      switch(target.name){
+       
+       case "Name":
+       case "LastName":
+    
+       var regexp = /^[a-zA-Z]+$/;
+	   var msg = "This field must only contain letters,also no spaces allowed,<br>use one continous string that is your Name or Lastname,and you can't submit an empty field!";   
+         
+       break;
+       
+       case "Email":
+       var regexp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
+	   var msg = "E-mail address is incorrect or if you use autocomplete,<br>it might be necessary to press again in the field for changes to set to Ok!";
+        break;
+         
+       case "Phone":
+       var regexp= /^(?:\+\d{1,3}|0\d{1,3}|00\d{1,2})?(?:\s?\(\d+\))?(?:[-\/\s.]|\d)+$/;      
+       msg="Invalid phone number,European and American formats are guaranted,<br>if you would like to leave it empty tap space at least once and the field is Ok!";
+
+       break;
+      
+       case "Address":
+        
+       var regexp=/^([a-zA-z0-9/\\''(),-\s]{2,255})$/;      
+       msg="Invalid adress,no dots allowed or just a character or special characters such as % etc.,and you can't submit an empty field!";
+
+       break;
+        
+
+      }
+     
+      if( regexp.test(target.value) ){
+                //Depending on the last status of each field's correct completion the variables in the Pass Object will change value and be verified by BigBrother() constantly
+                document.getElementById(target.name+"_p").innerHTML = "<span style='color:green'>The field is OK</span>";
+				
+            switch(target.name){
+                case "Name":
+                Pass.Name=true;
+                break;
+            
+                case "LastName":
+                Pass.LastName=true;
+                break;
+                
+                case "Email":
+                Pass.Email=true;
+                break;
+                
+                case "Phone":
+                Pass.Phone=true;
+                break;
+                
+                case "Address":
+                Pass.Address=true;
+                break;
+             }
+
+
+                 
+			}else{
+				document.getElementById(target.name+"_p").innerHTML = "<span style='color:red'>" + msg + '</span>';
+				
+                
+            switch(target.name){
+                case "Name":
+                Pass.Name=false;
+                break;
+            
+                case "LastName":
+                Pass.LastName=false;
+                break;
+                
+                case "Email":
+                Pass.Email=false;
+                break;
+                
+                case "Phone":
+                Pass.Phone=false;
+                break;
+                
+                case "Address":
+                Pass.Address=false;
+                break;
+             }
+ 
+
+            
+
+            }
+  
+  
+  
+    }
+
+
+
+  function GenerateForm(element="<br>",type="",valueType="",nameAttr="",idAttr=""){
+  
+    var SourceLabels=["Address","Email","Phone"];
+     
+    
+     for(var i=0; i<3; i++ ){
+        var brk0=document.createElement("br");
+        var brk1=document.createElement("br");
+        var DynamicLabel=document.createElement("label");
+      
+        if(i==2){
+            var textNode=document.createTextNode("Enter your "+SourceLabels[i]+" (optional,email is enough for contact)" + " :");
+        }else{
+            var textNode=document.createTextNode("Enter your "+SourceLabels[i]+ " :");
+        }
+        
+        
+        DynamicLabel.setAttribute("for",SourceLabels[i]);
+        DynamicLabel.appendChild(textNode);
+         
+       var DynamicInput=document.createElement(element);
+       DynamicInput.setAttribute(type,valueType);
+       DynamicInput.setAttribute(nameAttr,SourceLabels[i]);
+       DynamicInput.setAttribute(idAttr,SourceLabels[i]);
+       DynamicInput.setAttribute("onkeyup","Validation(this)");
+  
+        var DynamicP=document.createElement("p");
+        DynamicP.setAttribute(idAttr,SourceLabels[i]+"_p");
+
+       Form.appendChild(brk0);
+       Form.appendChild(brk1);
+       Form.appendChild(DynamicLabel);
+       Form.appendChild(brk0);
+       Form.appendChild(brk1);
+       
+       Form.appendChild(DynamicInput);
+       Form.appendChild(brk0);
+       Form.appendChild(brk1);
+       Form.appendChild(DynamicP);
+     }
+     
+  
+
+  }
+
+
+
+
+
+ function Selected(select){
+    DescriptionContainer.innerHTML="Your selection is: "+select.value; 
+    var brk0=document.createElement("br");
+    var brk1=document.createElement("br");
+    switch(select.value){
+     
+     case "Medusa Head Vase":
+     DescriptionContainer.innerHTML+="<br><br>"+descriptions['Medusa'];
+     break;
+     
+     case "Glass Ocean Blue Vase":
+     DescriptionContainer.innerHTML+="<br><br>"+descriptions['Glass'];
+     break;
+     
+     case "Sultan Delight Vase":
+     DescriptionContainer.innerHTML+="<br><br>"+descriptions['Sultan'];
+     break;
+     
+     case "Nature's Hold Vase":
+     DescriptionContainer.innerHTML+="<br><br>"+descriptions['Nature'];
+     break;
+     
+     case "H.R. Giger's Alien Egg Vase":
+     DescriptionContainer.innerHTML+="<br><br>"+descriptions['Alien'];
+     break;
+     
+     case "Shogun's Treasure Vase":
+     DescriptionContainer.innerHTML+="<br><br>"+descriptions['Asian'];
+     break;
+
+
+    }
+    ImageContainer.src="images/"+select.value+".jpg";
+    ImageContainer.style.display="inline";
+   
+    if( formPresence === 0 ){
+    Form.appendChild(brk0);
+    Form.appendChild(brk1);
+    GenerateForm("input","type","text","name","id");
+    } 
+    
+   if(select.value != "No Selection"){
+     Pass.Select=true;
+
+   }else{
+    Pass.Select=false;
+   }
+
+    formPresence=1; 
+    setInterval("BigBrother()",10); //This function will check regularly if the conditions for the appearence of the submit button are achieved,it's time must be quick so if the user changes the correctness of one field from OK to false and then tries to push the button immediately,he will not reach it
+ 
+
+   
+}
+
+
+</script>
+
+</body>
+</html>

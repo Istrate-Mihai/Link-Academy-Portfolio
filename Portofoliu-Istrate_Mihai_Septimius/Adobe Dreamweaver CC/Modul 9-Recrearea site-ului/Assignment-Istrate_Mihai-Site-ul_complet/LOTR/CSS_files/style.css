@@ -1,0 +1,293 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/House_Of_Elrond.jpg");
+     background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Caveat', cursive, "Times New Roman", "serif";
+    font-weight: 600;
+	
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Parisienne', cursive,'Helvetica','Arial';
+	margin: 0 0 0.5em 0.5em;
+	color: rgba(166,3,6,1.00);
+}
+h1{font-size: 36px;}
+h2{font-size: 30px;}
+h3{font-size: 24px;}
+h4{font-size: 18px;}
+h5{font-size: 12px;}
+h6{font-size: 6px;}
+
+
+
+#container {
+    margin: 20px auto;
+    width: 960px;
+    padding: 20px;
+	overflow: hidden;
+    background-color: rgba(255,255,255,0.20);
+}
+#header {
+  background-color: rgba(12,104,132,0.70);
+  margin-bottom: 20px;
+  height: 120px;
+  overflow: hidden;
+}
+#header h1 {
+ margin: 0 0 0.5em 0.5em;
+  float: left;
+}
+#headernavforpage {
+	height: 30px;
+	background-color:#FF7E00;
+	float: right;
+	
+	
+
+}
+#headernavforpage ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#headernavforpage ul li {
+	display: inline-block;
+	position: relative;
+}
+#headernavforpage ul li a {
+	padding: 5px 30px;
+	height: 10px; 
+	line-height: 20px;
+	display: block;
+}
+#headernavforpage ul li ul{
+	background-color: #FF7E00;
+	position: absolute;
+	top:24px;
+	left:0;
+	width: 200px;
+	display: none;
+	
+}
+#headernavforpage ul li:hover ul{
+	display: block;
+	height:100px;
+}
+#headernavforpage ul li ul li{
+	display: block;
+	
+}
+#headernavforpage ul li:hover ul:hover li {
+	display: block;
+	
+}
+
+
+#headernavforsite {
+	height: 30px;
+	background-color:#FF7E00;
+	float: right;
+	margin-right: 200px;
+	margin-bottom: 20px;
+
+}
+#headernavforsite ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#headernavforsite ul li {
+	display: inline-block;
+	position: relative;
+	
+	
+}
+#headernavforsite ul li a {
+	padding: 5px 30px;
+	height: 10px; 
+	line-height: 20px;
+	display: block;
+}
+#headernavforsite ul li ul{
+	background-color: #FF7E00;
+	position: absolute;
+	top:24px;
+	left:0;
+	width: 200px;
+	display: none;
+	
+}
+#headernavforsite ul li:hover ul{
+	display: block;
+	height:200px;
+	width: 250px;
+}
+#headernavforsite ul li ul li{
+	display: block;
+	
+}
+#headernavforsite ul li:hover ul:hover li {
+	display: block;
+	
+}
+
+#main{
+width: 700px;
+float:left;
+clear: both;	
+}
+.mainsection{
+	width: 660px;
+	background-color:#FFB575;
+	margin: 12px;
+}
+.mainsectionarticle{	
+	margin: 20px;
+	overflow: hidden;
+}
+.mainsectionfooter{
+    margin: 0 0  20px 0;
+    background-color: rgba(43,36,36,0.40);	
+	clear: both;
+}
+.mainsectionfooter h3{
+    margin: 0;
+    padding: 0;
+}
+.mainsectionfooter p{
+    margin: 0;
+    padding: 0;
+}
+#sidebar {
+	width:250px;
+	margin-top: 20px;
+	background-color:grey;
+	float:right;
+	
+}
+#sidebar h3{
+	margin-top: 0;
+	padding: 0;
+}
+.sidebararticle{
+	width: 220px;
+	
+	background-color: orange;
+	margin: 20px auto;
+}
+.sidebararticle p{
+	margin:0 10px 15px 10px;
+}
+
+
+
+#containerfooter {
+    background-color: rgba(12,104,132,0.70);
+	clear: both;
+	text-align:center;
+}
+
+#containerfooter a:link,
+#containerfooter a:visited {
+	color: darkblue;
+	clear: both;
+	text-align:center;
+}
+#containerfooter a:hover {
+	color: yellow;
+	text-decoration: underline;
+}
+#containerfooter a:active {
+	color: red;
+	text-decoration: none;
+}
+#Tolkien_Portrait {
+	margin:5px 10px;
+	padding: 5px;
+	float: left;
+		
+}
+#Book_Cover1 {
+	margin:5px 10px;
+	padding: 5px;
+	float: right;
+		
+}
+#middlearth_map {
+	margin:10px 5px;
+	padding: 5px;
+	
+}
+#Fellowship {
+	float:left;
+	margin-right: 10px;
+}
+#balrog {
+	margin-left: -25px;
+}
+#trailer1 {
+	margin-left: 30px;
+}
+#misty {
+	width: 200px;
+	margin-left: 10px;
+}
+#routes {
+	margin-left: 15px;
+}
+#uruk {
+	margin-left: 60px;
+}
+#isengard {
+	margin-left: 1px;
+}
+#book_cover2 {
+	margin-left: 145px;
+}
+#trailer2 {
+	margin-left: 30px;
+	margin-top: 50px;
+}
+#return_cover {
+	float: left;
+	margin: 15px;
+}
+#pelenor {
+	margin-left: 12px;
+}
+#crowning {
+	float: right;
+	margin-left: 5px;
+}
+#saruman {
+	float: right;
+}
+#trailer3 {
+	margin-left: 30px;
+}
+.sidebar_image{
+	margin-left: 10px;
+} 
+a:link,
+a:visited {
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	color: yellow;
+	text-decoration: underline;
+}
+a:active {
+	color: red;
+	text-decoration: none;
+}
+.contacticons {
+	clear: both;
+	margin:50px 10px 10px 100px;
+	font-size: 25px;
+}

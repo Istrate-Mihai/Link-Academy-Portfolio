@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+form {
+margin: 10px auto;
+width: 40%;
+height: 50%;
+
+text-align: right;
+background-image:url("rss-icon.png");
+background-repeat: no-repeat;
+background-size: contain;
+font-size: larger;
+color: blue;
+}

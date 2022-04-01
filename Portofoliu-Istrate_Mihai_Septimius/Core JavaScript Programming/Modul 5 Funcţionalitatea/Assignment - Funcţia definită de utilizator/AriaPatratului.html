@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <p><u style="color:red">Valoarea numerica</u> afisata se considera ca fiind valoarea numerica a ariei pentru u<sup>2</sup> ,unde u = o unitate de masura oarecare<br>(putem considera patratul afisat ca fiind <u style="color:red">valoarea numerica</u> px<sup>2</sup>)</p>
+     <p>Pentru valori foarte mari ale laturii folosite textul generat ca grafica va iesi din cadru,aria este afisata si aici pentru acest motiv,aceasta arie este: </p>
+     <p id="ArieFallBack"></p>
+     <button id="Btn1" onclick="AriaPatratului()"></button>
+     <button id="Btn2" onclick="AriaPatratului(100)"></button>
+     <button onclick="AriaPatratului( parseFloat(prompt('Introduce-ti latura: ')),prompt('Introduce-ti mesajul pentru primul buton: '),prompt('Introduce-ti mesajul pentru al doilea buton: '))">Genereaza patrat-aria mea si text butoane</button>
+     <br><br>
+     <canvas id="canvas"></canvas>
+    
+    <script>
+   var paragraf=document.getElementById("ArieFallBack");     
+   var msjBtn1="Genereaza patrat-arie variabila";
+   var msjBtn2="Genereaza patrat-aria statica";
+   var Btn1=document.getElementById("Btn1");
+   var Btn2=document.getElementById("Btn2");  
+      
+
+
+function AriaPatratului(latura,msj1,msj2){
+    var myRegex=/^[1-9]*[0-9]*$/;
+     
+  
+
+         if( latura === undefined ) { 
+             latura=Math.ceil( Math.random()*100 );
+             }else if(latura<0 || !myRegex.test(latura) ){
+              alert("Latura introdusa nu poate fi un numar negativ si nu poate contine caractere litere!!!");
+              document.write("NOK programul nu poate afisa un astfel de patrat!");
+              return;
+         }
+         
+    
+         if( msj1 === undefined ) msj1=msjBtn1; 
+         if( msj2 === undefined ) msj2=msjBtn2;
+         Btn1.innerHTML=msj1;
+         Btn2.innerHTML=msj2;   
+
+         var Aria=Math.pow(latura,2); 
+
+
+      var canvas=document.getElementById("canvas");
+      canvas.width=window.innerWidth;
+      canvas.height=window.innerHeight; 
+      var ctx=canvas.getContext("2d");
+      ctx.strokeStyle="blue";
+      ctx.lineWidth=1.5;
+      ctx.fillStyle="orange";
+      ctx.font=latura+15+"px Arial";
+
+      
+      ctx.beginPath();
+      ctx.moveTo(320,250);
+      ctx.lineTo(320+latura,250);
+      ctx.lineTo(320+latura,250+latura);
+      ctx.lineTo(320,250+latura);
+      ctx.lineTo(320,250); 
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath(); 
+      ctx.strokeText("Aria = "+Aria,200,200);
+      paragraf.innerHTML=Aria;
+         
+      }
+      
+      AriaPatratului();
+    </script>
+</body>
+</html>
