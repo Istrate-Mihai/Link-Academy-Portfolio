@@ -1,254 +1,204 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animatia-jQuery_Stilizare_Action_Adventure</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-</head>
-<style>
-body {
-  background-color: black;
-}
-
-#instructions {
-  visibility: hidden;
-  color: white;
-}
-span {
-  color: white;
- }
-
-
-.grid-container {
-
-  display: grid;
-  grid-gap:10px ;
-  margin: 10% auto;
-  padding: 5px;
-  height: 50%;
-  width: 80%;
-  background-image:url("background.jpg");
-  background-size: 100% 100%;
-  position: relative;
-
-}
-
-#reddragon { 
-  background-image:url("reddragon.gif");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 9%;
-  height: 20%; 
-  top: 15%; 
-  left: 5%; 
-  z-index: 1;
-  }
-
-#blackdragon { 
-  background-image: url("blackdragon.gif"); 
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 9%; 
-  height: 20%;
-  top: 10%; 
-  left: 85%; 
-  }
-
-#warrior { 
-  background-image: url("warrior.gif");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 9%; 
-  height: 20%;
-  top: 78%; 
-  left: 30%; 
-  z-index: 2; 
-  }
-
-#undead { 
-  
-  background-image: url("undead.gif"); 
-  background-repeat: no-repeat;
-  background-size: 60% 60%;
-  width: 9%; 
-  height: 20%;
-  top: 86%; 
-  left: 1%; 
-  }
-
-#horror_moon { 
-  background-image: url("horror_moon.gif"); 
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 9%;  
-  height: 20%;
-  top: 1%; 
-  left: 1%; 
-  }
-
-.grid-container > div {
-
-text-align: center;
-padding: 5px;
-font-size: 24px;
-color: white;
-position: absolute;
-
-
-}
-</style>
-
-
-<body>
-    
-    <button id="instructionsButton">Click to see instructions</button><br>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    body {
+      background-color: black;
+    }
+    #instructions {
+      visibility: hidden;
+      color: white;
+    }
+    span {
+      color: white;
+    }
+    .grid-container {
+      display: grid;
+      grid-gap: 10px;
+      margin: 10% auto;
+      padding: 5px;
+      height: 50%;
+      width: 80%;
+      background-image: url("background.jpg");
+      background-size: 100% 100%;
+      position: relative;
+    }
+    #reddragon {
+      background-image: url("reddragon.gif");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 9%;
+      height: 20%;
+      top: 15%;
+      left: 5%;
+      z-index: 1;
+    }
+    #blackdragon {
+      background-image: url("blackdragon.gif");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 9%;
+      height: 20%;
+      top: 10%;
+      left: 85%;
+    }
+    #warrior {
+      background-image: url("warrior.gif");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 9%;
+      height: 20%;
+      top: 78%;
+      left: 30%;
+      z-index: 2;
+    }
+    #undead {
+      background-image: url("undead.gif");
+      background-repeat: no-repeat;
+      background-size: 60% 60%;
+      width: 9%;
+      height: 20%;
+      top: 86%;
+      left: 1%;
+    }
+    #horror_moon {
+      background-image: url("horror_moon.gif");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 9%;
+      height: 20%;
+      top: 1%;
+      left: 1%;
+    }
+    .grid-container > div {
+      text-align: center;
+      padding: 5px;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <button id="instructionsButton">Click to see instructions</button><br />
     <button id="controlAnimation">Stop animation after it finishes</button>
-    <p id="instructions">Click on the red dragon to change it's size or hover with the cursor on the warrior(as many times as you want to transform him)!</p>
+    <p id="instructions">
+      Click on the red dragon to change it's size or hover with the cursor on
+      the warrior(as many times as you want to transform him)!
+    </p>
     <div class="grid-container">
-        <div id="reddragon"></div>
-        <div id="blackdragon"></div>
-        <div id="warrior"></div>
-        <div id="undead"></div>
-        <div id="horror_moon"></div>
+      <div id="reddragon"></div>
+      <div id="blackdragon"></div>
+      <div id="warrior"></div>
+      <div id="undead"></div>
+      <div id="horror_moon"></div>
     </div>
-  
-
-
-<noscript>Turn on Javascript in your browser for the animation to work!</noscript>
-
+    <noscript
+      >Turn on Javascript in your browser for the animation to work!</noscript
+    >
     <script>
-        
-        
-        $(document).ready(function(){
-           var repeatEnabled = true;
-           var stoppedAnimation = false;
-           var superSized, backgroundChanged, instructionsShowed; 
-        
-           superSized = false; 
-           backgroundChanged = false;
-           instructionsShowed = false;
-           
-        
-    
-           
-            //Show instructions effect
-                $("#instructionsButton").on("click",function(){
-              
-                 if(!instructionsShowed){
-                 $(this).text("Click again to hide instructions");  
-                 instructionsShowed=true;
-                 $("#instructions").css("visibility","visible"); 
-                }else{
-                    $(this).text("Click to see instructions"); 
-                    $("#instructions").css("visibility","hidden"); 
-                    instructionsShowed=false;
-                }
-
-            });
-
-
-            //Control animation effect
-            $("#controlAnimation").on("click",function(){
-              
-              if(!stoppedAnimation){
-              $(this).text("Click again to restart animation");  
-              stoppedAnimation = true;
-              repeatEnabled = false;
-             }else{
-                 $(this).text("Stop animation after it finishes"); 
-                 stoppedAnimation = false;
-                 repeatEnabled = true;
-                 animation();
-             }
-
-         });
-
-
-
-
-
-            //Resize object-1 effect
-            $("#reddragon").on("click",function(){
-            
-                if(!superSized){
-                    $(this).css({"width":"17%","height":"28%"});
-                    superSized=true;
-                  } else {
-                  //Bring object-1 to it's initial dimensions    
-                $(this).css({"width":"9%","height":"20%"});  
-                superSized=false;     
-                }
-            
-            });
-
-                         
-            
-            //Change object-3 background-color effect
-            $("#warrior").on("mouseenter",function(){
-            
-            if(!backgroundChanged){
-                $(this).css({"background-image":"url(\"werewolf-run.gif\")"});
-                backgroundChanged=true;
-              } else {
-              //Change object-3 to it's initial background-color   
-            $(this).css({"background-image":"url(\"warrior.gif\")"});  
-            backgroundChanged=false;
-            }
-        
+      $(document).ready(function () {
+        var repeatEnabled = true;
+        var stoppedAnimation = false;
+        var superSized, backgroundChanged, instructionsShowed;
+        superSized = false;
+        backgroundChanged = false;
+        instructionsShowed = false;
+        //Show instructions effect
+        $("#instructionsButton").on("click", function () {
+          if (!instructionsShowed) {
+            $(this).text("Click again to hide instructions");
+            instructionsShowed = true;
+            $("#instructions").css("visibility", "visible");
+          } else {
+            $(this).text("Click to see instructions");
+            $("#instructions").css("visibility", "hidden");
+            instructionsShowed = false;
+          }
         });
-            
-                   
-            
-                      
-            
-            
-                   function animation(){         
-                             
-                            $("#reddragon").animate({"left":"+=18%"},2000).animate({"top":"+=60%","left":"+=-10%"},2000).animate({"top":"+=6%","left":"+=12%"},800).animate({"top":"-=60%","left":"-=20%"},1000,function(){
-                               //Set object-1 to it's initial positions
-                                $("#reddragon").css({"top": "15%","left":"5%"});
-                                
-                            });
-
-                            
-               
-                            $("#blackdragon").animate({"left":"-=45%"},4800).animate({"left":"-=5%","top":"+=70%"},800).animate({"left":"-=10%"},200,function(){
-                                //Set object-2 to it's initial positions
-                                $("#blackdragon").css({"top": "10%", "left": "85%"});
-                            }); 
-
-                                 
-                            $("#warrior").animate({"left":"+=18%"},4000).animate({"left":"-=20%"},800).animate({"left":"-=10%"},1000,function(){
-                                //Set object-3 to it's initial positions   
-                                $("#warrior").css({"top": "78%", "left": "30%"});   
-                            });
-                                         
-                           
-                            $("#undead").animate({"left":"+=16.5%"},5600).animate({"left":"-=15%"},200,function(){
-                                //Set object-4 to it's initial positions
-                                $("#undead").css({"top": "86%", "left": "1%"});
-                            });
-                                    
-                      
-                      
-                            $("#horror_moon").animate({"left":"+=10%"},5800,function(){
-
-                        
-                             
-                             //Set object-5 to it's initial positions
-                             $("#horror_moon").css({"top":"1%","left":"1%"});
-                              
-                            //This way i've avoided uncaught internal error too much recursion
-                             if(repeatEnabled){
-                                 animation();
-                             }
-
-                            });                               
-                        }
-                    animation();
+        //Control animation effect
+        $("#controlAnimation").on("click", function () {
+          if (!stoppedAnimation) {
+            $(this).text("Click again to restart animation");
+            stoppedAnimation = true;
+            repeatEnabled = false;
+          } else {
+            $(this).text("Stop animation after it finishes");
+            stoppedAnimation = false;
+            repeatEnabled = true;
+            animation();
+          }
+        });
+        //Resize object-1 effect
+        $("#reddragon").on("click", function () {
+          if (!superSized) {
+            $(this).css({ width: "17%", height: "28%" });
+            superSized = true;
+          } else {
+            //Bring object-1 to it's initial dimensions
+            $(this).css({ width: "9%", height: "20%" });
+            superSized = false;
+          }
+        });
+        //Change object-3 background-color effect
+        $("#warrior").on("mouseenter", function () {
+          if (!backgroundChanged) {
+            $(this).css({ "background-image": 'url("werewolf-run.gif")' });
+            backgroundChanged = true;
+          } else {
+            //Change object-3 to it's initial background-color
+            $(this).css({ "background-image": 'url("warrior.gif")' });
+            backgroundChanged = false;
+          }
+        });
+        function animation() {
+          $("#reddragon")
+            .animate({ left: "+=18%" }, 2000)
+            .animate({ top: "+=60%", left: "+=-10%" }, 2000)
+            .animate({ top: "+=6%", left: "+=12%" }, 800)
+            .animate({ top: "-=60%", left: "-=20%" }, 1000, function () {
+              //Set object-1 to it's initial positions
+              $("#reddragon").css({ top: "15%", left: "5%" });
             });
-          
+          $("#blackdragon")
+            .animate({ left: "-=45%" }, 4800)
+            .animate({ left: "-=5%", top: "+=70%" }, 800)
+            .animate({ left: "-=10%" }, 200, function () {
+              //Set object-2 to it's initial positions
+              $("#blackdragon").css({ top: "10%", left: "85%" });
+            });
+          $("#warrior")
+            .animate({ left: "+=18%" }, 4000)
+            .animate({ left: "-=20%" }, 800)
+            .animate({ left: "-=10%" }, 1000, function () {
+              //Set object-3 to it's initial positions
+              $("#warrior").css({ top: "78%", left: "30%" });
+            });
+          $("#undead")
+            .animate({ left: "+=16.5%" }, 5600)
+            .animate({ left: "-=15%" }, 200, function () {
+              //Set object-4 to it's initial positions
+              $("#undead").css({ top: "86%", left: "1%" });
+            });
+          $("#horror_moon").animate({ left: "+=10%" }, 5800, function () {
+            //Set object-5 to it's initial positions
+            $("#horror_moon").css({ top: "1%", left: "1%" });
+            //This way i've avoided uncaught internal error too much recursion
+            if (repeatEnabled) {
+              animation();
+            }
+          });
+        }
+        animation();
+      });
     </script>
-</body>
+  </body>
 </html>

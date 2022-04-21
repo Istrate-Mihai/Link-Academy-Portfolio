@@ -1,187 +1,182 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animatia-jQuery_Template</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-</head>
-<style>
-#instructions {
-  visibility: hidden;
-}
-
-.grid-container {
-
-  display: grid;
-  grid-gap:10px ;
-  border: 2px solid blue;
-  margin: 10% auto;
-  padding: 5px;
-  height: 50%;
-  width: 80%;
-  background-color: wheat;
-  position: relative;
-
-}
-
-#object-1 { background-color: blue; width: 9%; top: 15%; left: 5%; }
-
-#object-2 { background-color: blueviolet; width: 9%; top: 10%; left: 85%; }
-
-#object-3 { background-color: brown; width: 9%; top: 90%; left: 30%; z-index: 1; }
-
-#object-4 { background-color: chocolate; width: 9%; top: 90%; left: 1%; }
-
-#object-5 { background-color: crimson; width: 9%;  top: 1%; left: 1%; }
-
-.grid-container > div {
-
-text-align: center;
-padding: 5px;
-font-size: 24px;
-color: white;
-position: absolute;
-
-
-}
-</style>
-
-
-<body>
-    <button id="instructionsButton">Click to see instructions</button><br>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    #instructions {
+      visibility: hidden;
+    }
+    .grid-container {
+      display: grid;
+      grid-gap: 10px;
+      border: 2px solid blue;
+      margin: 10% auto;
+      padding: 5px;
+      height: 50%;
+      width: 80%;
+      background-color: wheat;
+      position: relative;
+    }
+    #object-1 {
+      background-color: blue;
+      width: 9%;
+      top: 15%;
+      left: 5%;
+    }
+    #object-2 {
+      background-color: blueviolet;
+      width: 9%;
+      top: 10%;
+      left: 85%;
+    }
+    #object-3 {
+      background-color: brown;
+      width: 9%;
+      top: 90%;
+      left: 30%;
+      z-index: 1;
+    }
+    #object-4 {
+      background-color: chocolate;
+      width: 9%;
+      top: 90%;
+      left: 1%;
+    }
+    #object-5 {
+      background-color: crimson;
+      width: 9%;
+      top: 1%;
+      left: 1%;
+    }
+    .grid-container > div {
+      text-align: center;
+      padding: 5px;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <button id="instructionsButton">Click to see instructions</button><br />
     <button id="controlAnimation">Stop animation after it finishes</button>
-    <p id="instructions">Click on the rectangle marked as 1 to change it's size or hover with the cursor on the rectangle marked as 3(as many times as you want to alternate it's color)!</p>
+    <p id="instructions">
+      Click on the rectangle marked as 1 to change it's size or hover with the
+      cursor on the rectangle marked as 3(as many times as you want to alternate
+      it's color)!
+    </p>
     <div class="grid-container">
-        <div id="object-1"> 1 </div>
-        <div id="object-2"> 2 </div>
-        <div id="object-3"> 3 </div>
-        <div id="object-4"> 4 </div>
-        <div id="object-5"> 5 </div>
+      <div id="object-1">1</div>
+      <div id="object-2">2</div>
+      <div id="object-3">3</div>
+      <div id="object-4">4</div>
+      <div id="object-5">5</div>
     </div>
-  
-
-<noscript>Turn on Javascript in your browser for the animation to work!</noscript>
-
-    <script>  
-      
-        $(document).ready(function(){
-           var repeatEnabled = true;
-           var stoppedAnimation = false;  
-           var superSized, backgroundChanged, instructionsShowed; 
-        
-           superSized = false; 
-           backgroundChanged = false;
-           instructionsShowed = false;
-                 
-            //Show instructions effect
-                $("#instructionsButton").on("click",function(){
-              
-                 if(!instructionsShowed){
-                 $(this).text("Click again to hide instructions");  
-                 instructionsShowed=true;
-                 $("#instructions").css("visibility","visible"); 
-                }else{
-                    $(this).text("Click to see instructions"); 
-                    $("#instructions").css("visibility","hidden"); 
-                    instructionsShowed=false;
-                }
-
-            });
-
-            //Control animation effect
-             $("#controlAnimation").on("click",function(){
-                            
-                if(!stoppedAnimation){
-                 $(this).text("Click again to restart animation");  
-                 stoppedAnimation = true;
-                 repeatEnabled = false;
-                 }else{
-                  $(this).text("Stop animation after it finishes"); 
-                  stoppedAnimation = false;
-                  repeatEnabled = true;
-                animation();
-             }
-            
-            });
-            
-
-            //Resize object-1 effect
-            $("#object-1").on("click",function(){
-            
-                if(!superSized){
-                    $(this).css({"width":"19%","height":"16%"});
-                    superSized=true;
-                  } else {
-                  //Bring object-1 to it's initial dimensions    
-                $(this).css({"width":"9%","height":"28px"});  
-                superSized=false;     
-                }
-            
-            });
-         
-            //Change object-3 background-color effect
-            $("#object-3").on("mouseenter",function(){
-            
-            if(!backgroundChanged){
-                $(this).css({"background-color":"black"});
-                backgroundChanged=true;
-              } else {
-              //Change object-3 to it's initial background-color   
-            $(this).css({"background-color":"brown"});  
-            backgroundChanged=false;
-            }
-        
+    <noscript
+      >Turn on Javascript in your browser for the animation to work!</noscript
+    >
+    <script>
+      $(document).ready(function () {
+        var repeatEnabled = true;
+        var stoppedAnimation = false;
+        var superSized, backgroundChanged, instructionsShowed;
+        superSized = false;
+        backgroundChanged = false;
+        instructionsShowed = false;
+        //Show instructions effect
+        $("#instructionsButton").on("click", function () {
+          if (!instructionsShowed) {
+            $(this).text("Click again to hide instructions");
+            instructionsShowed = true;
+            $("#instructions").css("visibility", "visible");
+          } else {
+            $(this).text("Click to see instructions");
+            $("#instructions").css("visibility", "hidden");
+            instructionsShowed = false;
+          }
         });
-                 
-            
-                   function animation(){         
-                             
-                            $("#object-1").animate({"left":"+=18%"},2000).animate({"top":"+=60%","left":"+=-10%"},2000).animate({"top":"+=12%","left":"+=12%"},800).animate({"top":"-=60%","left":"-=20%"},1000,function(){
-                               //Set object-1 to it's initial positions
-                                $("#object-1").css({"top": "15%","left":"5%"});
-                                
-                            });
-
-                            
-               
-                            $("#object-2").animate({"left":"-=45%"},4800).animate({"left":"-=5%","top":"+=80%"},800).animate({"left":"-=10%"},200,function(){
-                                //Set object-2 to it's initial positions
-                                $("#object-2").css({"top": "10%", "left": "85%"});
-                            }); 
-
-                                 
-                            $("#object-3").animate({"left":"+=19.5%"},4000).animate({"left":"-=20%"},800).animate({"left":"-=10%"},1000,function(){
-                                //Set object-3 to it's initial positions   
-                                $("#object-3").css({"top": "90%", "left": "30%"});   
-                            });
-                                         
-                           
-                            $("#object-4").animate({"left":"+=18%"},5000).animate({"left":"-=10%"},800,function(){
-                                //Set object-4 to it's initial positions
-                                $("#object-4").css({"top": "90%", "left": "1%"});
-                            });
-                                    
-                      
-                      
-                            $("#object-5").animate({"left":"+=10%"},5800,function(){
-
-                        
-                             
-                             //Set object-5 to it's initial positions
-                             $("#object-5").css({"top":"1%","left":"1%"});
-                             //This way i've avoided uncaught internal error too much recursion
-                             if(repeatEnabled){
-                                 animation();
-                             }
-                            
-                            });
-                              
-                         
-                        }
-                    animation();
+        //Control animation effect
+        $("#controlAnimation").on("click", function () {
+          if (!stoppedAnimation) {
+            $(this).text("Click again to restart animation");
+            stoppedAnimation = true;
+            repeatEnabled = false;
+          } else {
+            $(this).text("Stop animation after it finishes");
+            stoppedAnimation = false;
+            repeatEnabled = true;
+            animation();
+          }
+        });
+        //Resize object-1 effect
+        $("#object-1").on("click", function () {
+          if (!superSized) {
+            $(this).css({ width: "19%", height: "16%" });
+            superSized = true;
+          } else {
+            //Bring object-1 to it's initial dimensions
+            $(this).css({ width: "9%", height: "28px" });
+            superSized = false;
+          }
+        });
+        //Change object-3 background-color effect
+        $("#object-3").on("mouseenter", function () {
+          if (!backgroundChanged) {
+            $(this).css({ "background-color": "black" });
+            backgroundChanged = true;
+          } else {
+            //Change object-3 to it's initial background-color
+            $(this).css({ "background-color": "brown" });
+            backgroundChanged = false;
+          }
+        });
+        function animation() {
+          $("#object-1")
+            .animate({ left: "+=18%" }, 2000)
+            .animate({ top: "+=60%", left: "+=-10%" }, 2000)
+            .animate({ top: "+=12%", left: "+=12%" }, 800)
+            .animate({ top: "-=60%", left: "-=20%" }, 1000, function () {
+              //Set object-1 to it's initial positions
+              $("#object-1").css({ top: "15%", left: "5%" });
             });
-          
+          $("#object-2")
+            .animate({ left: "-=45%" }, 4800)
+            .animate({ left: "-=5%", top: "+=80%" }, 800)
+            .animate({ left: "-=10%" }, 200, function () {
+              //Set object-2 to it's initial positions
+              $("#object-2").css({ top: "10%", left: "85%" });
+            });
+          $("#object-3")
+            .animate({ left: "+=19.5%" }, 4000)
+            .animate({ left: "-=20%" }, 800)
+            .animate({ left: "-=10%" }, 1000, function () {
+              //Set object-3 to it's initial positions
+              $("#object-3").css({ top: "90%", left: "30%" });
+            });
+          $("#object-4")
+            .animate({ left: "+=18%" }, 5000)
+            .animate({ left: "-=10%" }, 800, function () {
+              //Set object-4 to it's initial positions
+              $("#object-4").css({ top: "90%", left: "1%" });
+            });
+          $("#object-5").animate({ left: "+=10%" }, 5800, function () {
+            //Set object-5 to it's initial positions
+            $("#object-5").css({ top: "1%", left: "1%" });
+            //This way i've avoided uncaught internal error too much recursion
+            if (repeatEnabled) {
+              animation();
+            }
+          });
+        }
+        animation();
+      });
     </script>
-</body>
+  </body>
 </html>

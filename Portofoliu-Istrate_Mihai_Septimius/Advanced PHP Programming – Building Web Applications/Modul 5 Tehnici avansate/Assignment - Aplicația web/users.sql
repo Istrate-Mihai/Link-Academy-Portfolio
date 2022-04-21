@@ -72,7 +72,6 @@ INSERT INTO `comments` (`id`, `UserName`, `NewsName`, `Comment`, `Category`) VAL
 (11, 'Gabriel', 'Gigi Becali și Mihai Rotaru au bătut palma în secret, „Chiar îl admir pentru asta!”', 'Acesta este comentariul lui Gabriel', 'Sports');
 
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `news`
 --

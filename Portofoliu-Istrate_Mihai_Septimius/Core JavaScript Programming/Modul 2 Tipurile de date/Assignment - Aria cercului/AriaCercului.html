@@ -1,127 +1,129 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-    background-image:url("arhimede.png"),url("cerc-incadrat.jpg"),url("cloudThought.png");   
-    background-attachment:fixed,fixed,fixed;
-    background-repeat:no-repeat,no-repeat,no-repeat;
-    background-position:5% 45%,6.5% 14%,4.5% 8%;
-    background-size:300px 250px,170px 56px,300px 255px;
-     }
-
-     #container {
-         margin:20px auto;
-         width:960px;
-     }
-     a:link,a:visited {
-         text-decoration: none;
-         color: blue;
-     }
-     a:hover,a:active {
-           text-decoration: underline;
-           color: red;
-     }
-     img {
-         float:left;
-         margin: 20px;
-     }
-     h1 {
-         color:red;
-     }
-     canvas {
-         margin-top: 200px;
-     }
-
-     #Gandul_lui_Arhimede {
-          width: 250px;
-          height: 50px;
-          position: fixed;
-          top:19%;
-          left: 5.1%;
-          color: red;
-            
+      * {
+        box-sizing: border-box;
       }
-
-
-
-     @media only screen and (max-width:1630px) {
-         
-         #container {
-             margin:450px auto;
-             width: 100%;
-         }
-
-         canvas {
+      body {
+        background-image: url("arhimede.png"), url("cerc-incadrat.jpg"),
+          url("cloudThought.png");
+        background-attachment: fixed, fixed, fixed;
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: 5% 45%, 6.5% 14%, 4.5% 8%;
+        background-size: 300px 250px, 170px 56px, 300px 255px;
+      }
+      #container {
+        margin: 20px auto;
+        width: 960px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover,
+      a:active {
+        text-decoration: underline;
+        color: red;
+      }
+      img {
+        float: left;
+        margin: 20px;
+      }
+      h1 {
+        color: red;
+      }
+      canvas {
+        margin-top: 200px;
+      }
+      #Gandul_lui_Arhimede {
+        width: 250px;
+        height: 50px;
+        position: fixed;
+        top: 19%;
+        left: 5.1%;
+        color: red;
+      }
+      @media only screen and (max-width: 1630px) {
+        #container {
+          margin: 450px auto;
           width: 100%;
+        }
+        canvas {
+          width: 100%;
+        }
       }
-    
-     }
-      
-      
-   
-
-
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <p id="Gandul_lui_Arhimede"></p>
     <div id="container">
-    <h1>Aria discului de cerc</h1>
-    <img src="pi-desen-2.png" alt="Cerc Imagine">
-    <p>Cea mai veche utilizare atestată a unei bune aproximări a lungimii unei circumferințe în raport cu raza este 3+1/7, valoare folosită la proiectele piramidelor din Vechiul Regat al Egiptului. Marea Piramidă din Giza, construită în 2550-2500 î.e.n., a fost construită cu un perimetru de 1.760 cubiți și o înălțime de 280 cubiți; raportul 1.760/280 ≈ 2π. Egiptologi ca profesorii Flinders Petrie și I.E.S Edwards au arătat că aceste proporții circulare au fost alese deliberat de către scribii și arhitecții Vechiului Regat, din motive simbolice. Aceleași proporții apotropaice fuseseră utilizate și la Piramida de la Meidum din anul 2600 î.e.n. Aceste aplicații au fost relevate arheologic, întrucât nu există dovezi scrise din perioada respectivă.
-
-        Istoria veche a lui π în documente scrise urmează dezvoltarea matematicii în ansamblul ei. Unii autori împart progresul în trei perioade: perioada veche, în care π a fost studiat geometric, epoca clasică de după dezvoltarea analizei matematice în Europa în preajma secolului al XVII-lea, și era calculatoarelor numerice.<br>Pentru mai multe informatii accesati link-ul <a href="https://ro.wikipedia.org/wiki/Pi">pi-Wikipedia</a>.</p>
-        <br>
-        <p>Pentru a incerca diverse valori ale razei si a calcula aria cercului apasa-ti butonul <button onclick="AriaCercului()">Calculeaza Aria Cercului</button></p>
+      <h1>Aria discului de cerc</h1>
+      <img src="pi-desen-2.png" alt="Cerc Imagine" />
+      <p>
+        Cea mai veche utilizare atestată a unei bune aproximări a lungimii unei
+        circumferințe în raport cu raza este 3+1/7, valoare folosită la
+        proiectele piramidelor din Vechiul Regat al Egiptului. Marea Piramidă
+        din Giza, construită în 2550-2500 î.e.n., a fost construită cu un
+        perimetru de 1.760 cubiți și o înălțime de 280 cubiți; raportul
+        1.760/280 ≈ 2π. Egiptologi ca profesorii Flinders Petrie și I.E.S
+        Edwards au arătat că aceste proporții circulare au fost alese deliberat
+        de către scribii și arhitecții Vechiului Regat, din motive simbolice.
+        Aceleași proporții apotropaice fuseseră utilizate și la Piramida de la
+        Meidum din anul 2600 î.e.n. Aceste aplicații au fost relevate
+        arheologic, întrucât nu există dovezi scrise din perioada respectivă.
+        Istoria veche a lui π în documente scrise urmează dezvoltarea
+        matematicii în ansamblul ei. Unii autori împart progresul în trei
+        perioade: perioada veche, în care π a fost studiat geometric, epoca
+        clasică de după dezvoltarea analizei matematice în Europa în preajma
+        secolului al XVII-lea, și era calculatoarelor numerice.<br />Pentru mai
+        multe informatii accesati link-ul
+        <a href="https://ro.wikipedia.org/wiki/Pi">pi-Wikipedia</a>.
+      </p>
+      <br />
+      <p>
+        Pentru a incerca diverse valori ale razei si a calcula aria cercului
+        apasa-ti butonul
+        <button onclick="AriaCercului()">Calculeaza Aria Cercului</button>
+      </p>
     </div>
-  <canvas id="canvas"></canvas>
-
-
-<script>
- 
-  function AriaCercului(){
-    var myRegex=/^[1-9]*[0-9]*$/;
-    const pi=Math.PI.toFixed(2);
-   var x,y,Aria,Rezultat,canvas;
-   x=eval(prompt("Introduce-ti raza: "));
-   x=parseFloat(x);
-   
-   
-   if(  !myRegex.test(x) ) {
-       alert("Trebuie sa introduce-ti o valoare reprezentand un numar pozitiv!!!");
-       document.write("NOK nu se poate realiza operatia!"); 
-       return;
-    }
-    
-    
-   
-   y=Math.pow(x,2);
-   Aria=pi*y;
-   Rezultat=document.getElementById("Gandul_lui_Arhimede");
-   Rezultat.innerHTML="Raspunsul este: "+ Aria +" (unitate de masura)<sup>2</sup> ";
-    canvas=document.getElementById("canvas");
-    canvas.width=window.innerWidth;
-    canvas.height=window.innerHeight;
-    circleCoordX=(window.innerWidth)/2;
-    circleCoordY=(window.innerHeight)/2;
-    canvas.style.border="2px solid blue";
-    ctx=canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(circleCoordX,circleCoordY,x,0,2*Math.PI);
-    ctx.fillStyle="grey";
-    ctx.fill();
-    ctx.closePath();
-       
-}
-
-
-</script>
-</body>
+    <canvas id="canvas"></canvas>
+    <script>
+      function AriaCercului() {
+        var myRegex = /^[1-9]*[0-9]*$/;
+        const pi = Math.PI.toFixed(2);
+        var x, y, Aria, Rezultat, canvas;
+        x = eval(prompt("Introduce-ti raza: "));
+        x = parseFloat(x);
+        if (!myRegex.test(x)) {
+          alert(
+            "Trebuie sa introduce-ti o valoare reprezentand un numar pozitiv!!!"
+          );
+          document.write("NOK nu se poate realiza operatia!");
+          return;
+        }
+        y = Math.pow(x, 2);
+        Aria = pi * y;
+        Rezultat = document.getElementById("Gandul_lui_Arhimede");
+        Rezultat.innerHTML =
+          "Raspunsul este: " + Aria + " (unitate de masura)<sup>2</sup> ";
+        canvas = document.getElementById("canvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        circleCoordX = window.innerWidth / 2;
+        circleCoordY = window.innerHeight / 2;
+        canvas.style.border = "2px solid blue";
+        ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(circleCoordX, circleCoordY, x, 0, 2 * Math.PI);
+        ctx.fillStyle = "grey";
+        ctx.fill();
+        ctx.closePath();
+      }
+    </script>
+  </body>
 </html>
