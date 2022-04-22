@@ -1,57 +1,45 @@
 @charset "UTF-8";
-body{
-background-image: url(../images/Alan-Turing-2012.jpg);
-background-attachment: fixed;
-background-repeat: no-repeat;
-background-position:right center;
-background-size: 800px 1200px;
-
-
+body {
+  background-image: url(../images/Alan-Turing-2012.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 800px 1200px;
 }
-ul#nav_li li{
-display:inline;
-padding: 4px;
-
+ul#nav_li li {
+  display: inline;
+  padding: 4px;
 }
-main img{
- float: right;
-
+main img {
+  float: right;
 }
-#wrapper{
-    width:960px;
-    margin-left: auto;
-    margin-right: auto;
+#wrapper {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-
 
 #header {
-    height:100px;
-    
+  height: 100px;
 }
 
 #main {
-    width:700px;
-    background-color: antiquewhite;
-    float:left;
-    padding:20px;
-
+  width: 700px;
+  background-color: antiquewhite;
+  float: left;
+  padding: 20px;
 }
-
-
 
 #footer {
-    
-    clear:both;
-    
+  clear: both;
 }
 
-a:link{
-    text-decoration: none;
-    }
-a:visited{
-      color:indigo;
-    }
-a:hover{
-        color: peru;
-    }
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  color: indigo;
+}
+a:hover {
+  color: peru;
+}
